@@ -1,9 +1,9 @@
-import UserGreeting from './UserGreeting';
+import List from './List';
  
 function App(){
   return(
   <>
-   <UserGreeting isLoggedIn={false} username="Pooh_Jr"/>
+  <List/>
   </>
   );
 }
