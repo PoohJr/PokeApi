@@ -15,7 +15,12 @@
 } */
 
 .btn1{
-    font-size: 2em;
+    font-size: 1em;
     border-radius: 8px;
+    margin: 12px;
+    padding: .5em;
+    outline: none;
+    cursor: pointer;
+
     
 }

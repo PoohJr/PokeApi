@@ -1,9 +1,10 @@
-import MyCom from "./MyCom";
+import Counter from "./Counter.jsx";
+import './index.css'
 
  function App(){
 
   return(<>
-        <MyCom/>
+        <Counter/>
     </>
   );
 }
