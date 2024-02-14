@@ -1,5 +1,5 @@
 
-function UserGreeting(){
+function UserGreeting(props){
     return(
         
     );
