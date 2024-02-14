@@ -1,9 +1,9 @@
 
 function ProfilePic(){
-    const imgurl = 'PokeApi/src/assets/b0fa77fe12bad43e8a300d1ec214ec3e-3158511091.png';
+    const imgurl = './src/assets/naruro.png';
     
-    const handleClick = () => console.log("YUrr")
-
-    return(<img onClick={handleClick} src={imgurl} alt="Profile Pic"></img>);
+    const handleClick = (e) =>e.target.style.border = "2em black solid"
+   
+    return(<img onClick={(e) =>handleClick (e)} src={imgurl} alt="Profile Pic"></img>);
 }
 export default ProfilePic

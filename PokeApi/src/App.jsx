@@ -1,10 +1,9 @@
-import Click from "./Click"
-import ProfilePic from "./ProfilePic";
+import MyCom from "./MyCom";
+
  function App(){
 
   return(<>
-  <Click/>
-  <ProfilePic/>
+        <MyCom/>
     </>
   );
 }

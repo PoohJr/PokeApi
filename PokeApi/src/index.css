@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.student{
+/* .student{
     font-family: 'Times New Roman', Times, serif;
     font-size: 2em;
     padding: 12px;
@@ -12,4 +12,10 @@
 }
 .student p{
     margin: 0;
+} */
+
+.btn1{
+    font-size: 2em;
+    border-radius: 8px;
+    
 }
