@@ -1,10 +1,10 @@
-import Counter from "./Counter.jsx";
+import newComp from './newComp';
 import './index.css'
 
  function App(){
 
   return(<>
-        <Counter/>
+       <newComp/>
     </>
   );
 }
