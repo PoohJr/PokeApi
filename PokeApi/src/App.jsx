@@ -1,10 +1,10 @@
-import NewUpdate from './newUpdate.jsx';
+import NewArray from './newArray.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <NewUpdate/>
+       <NewArray/>
     </>
   );
 }
