@@ -1,10 +1,10 @@
-import NewComp from './newComp.jsx';
+import NewUpdate from './newUpdate.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <NewComp/>
+       <NewUpdate/>
     </>
   );
 }
