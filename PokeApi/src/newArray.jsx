@@ -7,6 +7,8 @@ function newArray(){
     function arrayAdd(){
         const newFood = document.getElementById("foodInput").value;
         document.getElementById("foodInput").value = "";
+
+        setFoods(f =>( f[...foods, newFood]))
      
     }
 
