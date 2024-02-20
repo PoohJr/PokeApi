@@ -1,2 +1,1 @@
-# PokeAPI
-just seeing how this works
+Learning React 
