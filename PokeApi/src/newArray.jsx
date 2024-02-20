@@ -8,19 +8,20 @@ function newArray(){
         const newFood = document.getElementById("foodInput").value;
         document.getElementById("foodInput").value = "";
 
-        setFoods(f =>( f[...foods, newFood]))
-     
+        setFoods(f =>[...f, newFood  ])
+    
     }
 
-    function arrayRemove(){
-        
+    function arrayRemove(index){
+        setFoods(foods.filter((_, i) => i !== index))
     }
 
     return(<>
         <div className="conatienr">
             <h2>List of Food</h2>
             <ul>
-                {foods.map((food, index) => <li key={index}>{food}</li>)}
+                {foods.map((food, index) => 
+                <li key={index} onClick={() => arrayRemove(index)}>{food}</li>)}
             </ul>
             <input type="text" id='foodInput' placeholder='Add Food'/>
             <button onClick={arrayAdd}>Add Food</button>
