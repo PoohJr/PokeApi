@@ -1,10 +1,10 @@
-import NewArray from './newArray.jsx';
+import NewCar from './newCar.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <NewArray/>
+       <NewCar/>
     </>
   );
 }

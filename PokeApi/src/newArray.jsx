@@ -1,3 +1,7 @@
+// this is how to add items to an array
+// study filter(), map(), updater functions or f => f..., and the handle remove function.
+
+
 import React, { useState } from 'react';
 
 function newArray(){
