@@ -20,6 +20,10 @@ import React, {useState, useEffect} from "react";
             }
         }, [])
 
+            useEffect(() => {
+                document.title = `Size :${width} x ${height}`;
+            },[width, height])
+
 
         return(<>
             <h1 onChange={handleSize}>Windowed Height: {height}px</h1>

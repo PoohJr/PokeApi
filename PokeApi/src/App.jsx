@@ -1,10 +1,10 @@
-import SetSize from './setSize.jsx';
+import ClockApp from './clockApp.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <SetSize/>
+       <ClockApp/>
     </>
   );
 }
