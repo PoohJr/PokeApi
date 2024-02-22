@@ -80,3 +80,13 @@ export default massEffect
     // useEffect(() =>{
     //     document.title = "Count"
     // }, [])
+
+
+
+    // Benfits of using UseEffect 
+    // 1. it keeps code clean and organized
+    // 2. option to do some clean up code
+    //
+    // The code will still work without the useEffect method but it just wont 
+    // be as percice
+    //

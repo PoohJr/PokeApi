@@ -1,10 +1,10 @@
-import MassEffect from './massEffect.jsx';
+import SetSize from './setSize.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <MassEffect/>
+       <SetSize/>
     </>
   );
 }
