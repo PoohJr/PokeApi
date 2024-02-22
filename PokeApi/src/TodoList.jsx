@@ -79,12 +79,13 @@ function TodoList(){
         }
 
         function addTask(){
-            setTask(t => [...t, newTask])
+            setTask(t => [...t, newTask]);
             setNewTask("")
         }
 
         function removeTask(index){
-            
+            const updatedTask = tasks.filter((_, i) => i !== index);
+            setTask(updatedTask)
         }
 
         function moveTaskUp(index){

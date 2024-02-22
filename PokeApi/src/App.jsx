@@ -1,10 +1,10 @@
-import ToDoList from './TodoList.jsx';
+import MassEffect from './massEffect.jsx';
 import './index.css'
 
  function App(){
 
   return(<>
-       <ToDoList/>
+       <MassEffect/>
     </>
   );
 }
