@@ -2,22 +2,41 @@ import React, {useState, useEffect} from "react";
 import './header.css'
 
 function Header(){
-
+    const [userinput, setUserInput] = useState("")
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
 
 
-    useEffect(() =>{
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("Form submitted with value:", userinput);
+        setUserInput("")
+      };
 
-    },[])
-    const pokeitem = document.getElementById("in").value
-    const apiurl =  fetch(`https://pokeapi.co/api/v2/pokemon/${pokeitem}`);
+        function handleuserInput(e){
+            setUserInput(e.target.value)
+            console.log(userinput)
+            
+        }
 
-    function getPoke (){ 
-        
-       
-        
-        console.log("Hello")
+
+   const getPoke = useEffect(() => {
+        const apiurl = async () => {
+          try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${setUserInput}`);
+            const jsonData = await response.json();
+            setData(jsonData);
+          } catch (error) {
+
+            setError(console.error("Something went bad", error));
+          }
+        }
+      
+        apiurl();
+      }, [userinput]);
+      
+    function remove(){ 
+     
 }
 
 
@@ -29,11 +48,19 @@ function Header(){
     return(
     <>
     <div className="container">
-        <h1 className="heading-text">PokeMon</h1>
-        <input id="in" onSubmit={getPoke} type="sumbit" placeholder="Choose Your Pokemon!"></input>
-        <br></br>
-        <button onClick={randomPoke}>Randomize</button>
-        
+        <form onSubmit={handleSubmit}>
+
+            <h1 className="heading-text">PokeMon</h1>
+
+            <input id="in" onChange={handleuserInput}
+             value={userinput}
+             type="text"
+             placeholder="Choose Your Pokemon!"></input>
+            <br></br>
+
+            <button onClick={randomPoke}>Randomize</button>
+
+        </form>
     </div>
         
         
