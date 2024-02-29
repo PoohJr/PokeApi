@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    height: 50vh;
+}
+h1{
+    font-size: 4em;
+}
+input{
+    border-radius: 4px;
+    padding: 1em;
+    align-items: center;
+    width: 80%;
+    max-width: 90%;
+    margin:1.5em 0 0 1.9em ;
+
+}
+input[placeholder]{
+    padding: .5em;
+}
+button{
+    margin: 2em 0 0 5em;
+    border: red 2px solid;
+    border-radius: 8px;
+    background-color: red;
+    padding: .5em;
+    font-size: 1em;
+    color: #fff;
+}
+
+button:hover{
+    
+}
