@@ -7,39 +7,35 @@ function Header(){
     const [error, setError] = useState(null)
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
         console.log("Form submitted with value:", userinput);
         setUserInput("")
       };
 
-        function handleuserInput(e){
-            setUserInput(e.target.value)
-            console.log(userinput)
-            
-        }
 
-
-   const getPoke = useEffect(() => {
-        const apiurl = async () => {
+         useEffect(() => {
+        const fetchData = async () => {
           try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${setUserInput}`);
+            if(!userinput) return;
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${userinput}`);
+            console.log(response)
+            if(!response.ok){
+              throw new Error("Failed to Reach API")
+            }
             const jsonData = await response.json();
             setData(jsonData);
           } catch (error) {
-
             setError(console.error("Something went bad", error));
           }
         }
       
-        apiurl();
+        fetchData();
       }, [userinput]);
       
     function remove(){ 
      
 }
-
-
 
     function randomPoke(){
         
@@ -52,7 +48,7 @@ function Header(){
 
             <h1 className="heading-text">PokeMon</h1>
 
-            <input id="in" onChange={handleuserInput}
+            <input id="in" onChange={(e) => setUserInput(e.target.value)}
              value={userinput}
              type="text"
              placeholder="Choose Your Pokemon!"></input>
