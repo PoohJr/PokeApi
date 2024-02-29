@@ -5,6 +5,7 @@ import './Header.css'
         const [userInput, setUserInput] = useState("")
         const [data, setData] = useState(null)
         const [newerror, setNewError] = useState(null)
+        const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`
 
         function HandleInputChange(e){
             setUserInput(e.target.value)
@@ -20,21 +21,20 @@ import './Header.css'
             useEffect(() => {
                 const fetchData = async () => {
                 try {
-                    if(!userinput) return;
-                    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${userinput}`);
-                    console.log(response)
+                    if(!userInput) return;
+                    const response = await fetch(apiurl);
                     if(!response.ok){
                         throw new Error("Failed to Reach API")
                         }
                     const jsonData = await response.json();
                     setData(jsonData);
+                    
                     } catch (error) {
                     setNewError(console.error("Something went bad", newerror));
                     }
                 }
-            
                 fetchData();
-                }, [userInput]);
+                }, [data]);
     return(
     <>
 
