@@ -18,23 +18,32 @@ import './Header.css'
             };
 
 
-            useEffect(() => {
-                const fetchData = async () => {
-                try {
-                    if(!userInput) return;
-                    const response = await fetch(apiurl);
-                    if(!response.ok){
-                        throw new Error("Failed to Reach API")
-                        }
-                    const jsonData = await response.json();
-                    setData(jsonData);
+            // useEffect(() => {
+            //     const fetchData = async () => {
+            //     try {
+            //         if(!userInput) return;
+            //         const response = await fetch(apiurl);
+            //         if(!response.ok){
+            //             throw new Error("Failed to Reach API")
+            //             }
+            //         const jsonData = await response.json();
+            //         setData(jsonData);
                     
-                    } catch (error) {
-                    setNewError(console.error("Something went bad", newerror));
-                    }
+            //         } catch (error) {
+            //         setNewError(console.error("Something went bad", newerror));
+            //         }
+            //     }
+            //     fetchData();
+            //     }, [data]);
+                const fetchData = async () => {
+                       const response = await fetch(apiurl);
+                       if(!response){
+                        return setNewError(console.error(newerror, "No Good Play Boi"))
+                       }
+                       const ResData = await response.json();
+                       console.log(ResData)
+
                 }
-                fetchData();
-                }, [data]);
     return(
     <>
 
@@ -45,7 +54,7 @@ import './Header.css'
                 onChange={HandleInputChange} 
                 value={userInput} type="text" 
                 placeholder="Choose Your Pokemon!"
-                ></input> 
+                ></input> <button onClick={fetchData}>Search</button>
                 <br></br> 
                 <button>Randomize</button> 
         </form>
