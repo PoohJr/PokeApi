@@ -6,6 +6,10 @@ import './Header.css'
         const [data, setData] = useState(null)
         const [error, setError] = useState(null)
 
+        function HandleInputChange(e){
+            XsetUserInput(e.target.value)
+        }
+
         const handleSubmit = (e) => {
             e.preventDefault();
             console.log("Form submitted with value:", userinput);
@@ -13,7 +17,7 @@ import './Header.css'
             };
 
     useEffect(() => {
-    const fetchData = async () => {
+       const fetchData = async () => {
     try {
         if(!userinput) return;
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${userinput}`);
@@ -44,7 +48,7 @@ import './Header.css'
         <form onSubmit={handleSubmit}> 
             <h1 className="heading-text">PokeMon</h1> 
                 <input id="in" 
-                onChange={(e) => setUserInput(e.target.value)} 
+                onChange={HandleInputChange} 
                 value={userinput} type="text" 
                 placeholder="Choose Your Pokemon!"
                 ></input> 
