@@ -1,4 +1,3 @@
-// Details page component
 import React from "react";
 
 function PokemonDetails({ location }) {

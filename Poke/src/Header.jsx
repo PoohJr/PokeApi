@@ -1,13 +1,13 @@
-import React, {useState, } from "react";
-import {useHistory} from 'react-router-dom'
+import React, {useState } from "react";
 import './Header.css'
+
 
     function Header(){
         const [userInput, setUserInput] = useState("")
-        const [data, setData] = useState()
+        const [data, setData] = useState(null)
         const [newerror, setNewError] = useState(null)
         const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`
-        const history = useHistory();
+
 
 
         function HandleInputChange(e){
@@ -20,21 +20,23 @@ import './Header.css'
             };
 
 
-                const fetchData = async () => {
-                       const response = await fetch(apiurl);
-                       if(!response.ok){
-                        throw new Error ("Failed to fetch Data")
-                        history.
-                       }
-                       const ResData = await response.json();
-                       setData(ResData)
-                       console.log(ResData)
-                         history.push(`/pokemon/${ResData.name}`, { pokemonData: ResData });
-
-                       console.error("Error fetching data:", error);
-                       alert("The entered Pokémon doesn't exist.");
-                       setNewError("Error fetching data: " + error.message);  
-                     }
+             async function fetchData() {
+                try {
+                    const response = await fetch(apiurl);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Data");
+                    }
+                    
+                    const ResData = await response.json();
+                    setData(ResData);
+                    console.log(ResData);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                    alert("The entered Pokémon doesn't exist.");
+                    setNewError("Error fetching data: " + error.message);
+                }
+            }
+            
                              
     return(
     <>
@@ -53,6 +55,10 @@ import './Header.css'
                 <button className="random">Randomize</button> 
          </div>
         </form>
+        <div className="comp">
+            {data && <h1>{data.name}</h1>}
+            {data && <img src={data.sprites && data.sprites.back_default} alt="" />}
+        </div>
      </div>
 
     </>)
