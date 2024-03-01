@@ -13,7 +13,6 @@ import './Header.css'
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            console.log("Form submitted with value:", userInput);
             setUserInput("")
             };
 
@@ -37,26 +36,33 @@ import './Header.css'
             //     }, [data]);
                 const fetchData = async () => {
                        const response = await fetch(apiurl);
-                       if(!response){
-                        return setNewError(console.error(newerror, "No Good Play Boi"))
+                       if(!response.ok){
+                        throw new Error ("Failed to fetch Data")
                        }
                        const ResData = await response.json();
                        console.log(ResData)
 
-                }
+                       console.error("Error fetching data:", newerror);
+                       alert("The entered Pokémon doesn't exist.");
+                       setNewError("Error fetching data: " + newerror.message);  
+                     }
+                             
     return(
     <>
 
     <div className="container"> 
         <form onSubmit={handleSubmit}> 
+        <div className="display">
             <h1 className="heading-text">PokeMon</h1> 
                 <input id="in" 
                 onChange={HandleInputChange} 
                 value={userInput} type="text" 
                 placeholder="Choose Your Pokemon!"
-                ></input> <button onClick={fetchData}>Search</button>
+                ></input> 
+                <button className="search" onClick={fetchData}>Search</button>
                 <br></br> 
-                <button>Randomize</button> 
+                <button className="random">Randomize</button> 
+         </div>
         </form>
      </div>
 
