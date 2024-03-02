@@ -1,5 +1,6 @@
 import React, {useState } from "react";
 import './Header.css'
+import { useNavigate } from "react-router-dom";
 
 
     function Header(){
@@ -50,15 +51,11 @@ import './Header.css'
                 value={userInput} type="text" 
                 placeholder="Choose Your Pokemon!"
                 ></input> 
-                <button className="search" onClick={fetchData}>Search</button>
+                <button href="./PokemonDet.jsx" className="search" onClick={() => fetchData()}>Search</button>
                 <br></br> 
                 <button className="random">Randomize</button> 
          </div>
         </form>
-        <div className="comp">
-            {data && <h1>{data.name}</h1>}
-            {data && <img src={data.sprites && data.sprites.back_default} alt="" />}
-        </div>
      </div>
 
     </>)
