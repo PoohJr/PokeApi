@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { fetchData } from "./pokemonData.jsx";
 import './Header.css'
 
@@ -22,13 +22,15 @@ import './Header.css'
                 try{
                     const data = await fetchData(userInput)
                     console.log(data)
-                    navigate('PokeMon', { state: { pokemonData: data }});
-                }   catch(error) {
-                    console.error("Error Fetching Api", error);
-                    navigate('404')
-            setNewError("Error fetching data: " + error.message);
-                }
-            setUserInput("")
+                    navigate('PokeMon', { state: { userInput: userInput }});
+                    console.log(navigate)
+                }   
+                    catch(error) {
+                        console.error("Error Fetching Api", error);
+                        navigate('404')
+                setNewError("Error fetching data: " + error.message);
+                    }
+                setUserInput("")
             };
 
 
