@@ -8,9 +8,8 @@ import './Header.css'
     function Header(){
         const [userInput, setUserInput] = useState("")
         const navigate = useNavigate()
-        const [data, setData] = useState(null)
         const [newerror, setNewError] = useState(null)
-        const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`
+        
 
 
 
@@ -18,30 +17,21 @@ import './Header.css'
             setUserInput(e.target.value)
         }
 
-        const handleSubmit = (e) => {
+        const handleSubmit = async (e) => {
             e.preventDefault();
-            fetchData();
+                try{
+                    const data = await fetchData(userInput)
+                    console.log(data)
+                    navigate('PokeMon', { state: { pokemonData: data }});
+                }   catch(error) {
+                    console.error("Error Fetching Api", error);
+                    navigate('404')
+            setNewError("Error fetching data: " + error.message);
+                }
             setUserInput("")
             };
 
 
-             async function fetchData() {
-                try {
-                    const response = await fetch(apiurl);
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch Data");
-                    }
-                    
-                    const ResData = await response.json();
-                    setData(ResData);
-                    console.log(ResData);
-                    navigate('PokeMon', { state: { pokemonData: ResData }});
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                    alert("The entered Pokémon doesn't exist.");
-                    setNewError("Error fetching data: " + error.message);
-                }
-            }
             
                              
     return(
