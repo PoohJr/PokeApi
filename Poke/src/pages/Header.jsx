@@ -1,10 +1,13 @@
 import React, {useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchData } from "./pokemonData.jsx";
 import './Header.css'
 
 
 
     function Header(){
         const [userInput, setUserInput] = useState("")
+        const navigate = useNavigate()
         const [data, setData] = useState(null)
         const [newerror, setNewError] = useState(null)
         const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`
@@ -17,6 +20,7 @@ import './Header.css'
 
         const handleSubmit = (e) => {
             e.preventDefault();
+            fetchData();
             setUserInput("")
             };
 
@@ -31,6 +35,7 @@ import './Header.css'
                     const ResData = await response.json();
                     setData(ResData);
                     console.log(ResData);
+                    navigate('PokeMon', { state: { pokemonData: ResData }});
                 } catch (error) {
                     console.error("Error fetching data:", error);
                     alert("The entered Pokémon doesn't exist.");
@@ -46,12 +51,14 @@ import './Header.css'
         <form onSubmit={handleSubmit}> 
         <div className="display">
             <h1 className="heading-text">PokeMon</h1> 
+
                 <input id="in" 
                 onChange={HandleInputChange} 
                 value={userInput} type="text" 
                 placeholder="Choose Your Pokemon!"
                 ></input> 
-                <button href="./PokemonDet.jsx" className="search" onClick={() => fetchData()}>Search</button>
+
+                <button href="./PokemonDet.jsx" className="search">Search</button>
                 <br></br> 
                 <button className="random">Randomize</button> 
          </div>
