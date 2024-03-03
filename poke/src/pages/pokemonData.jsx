@@ -8,7 +8,7 @@ import React from "react";
         }
         
         const ResData = await response.json();
-        return ResData;
+        console.log(ResData) 
     } catch (error) {
         throw new Error("Error fetching data: " + error.message);
     }
@@ -19,6 +19,7 @@ function PokemonDetails() {
 
     return (
         <>
+            <h1>{ResData.name}</h1>
             <h1>Hello</h1>
         </>
     );
