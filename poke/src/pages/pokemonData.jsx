@@ -1,5 +1,8 @@
 import React from "react";
- export async function fetchData(userInput) {
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+export async function fetchData(userInput) {
+    
     const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
     try {
         const response = await fetch(apiurl);
@@ -8,18 +11,40 @@ import React from "react";
         }
         
         const ResData = await response.json();
-        console.log(ResData) 
+        console.log(ResData);
+        return ResData;
     } catch (error) {
         throw new Error("Error fetching data: " + error.message);
     }
 }
 
-function PokemonDetails() {
 
+
+function PokemonDetails() {
+    const location = useLocation()
+    const{userInput} = location.state
+
+    const [pokedata, setPokeData] = (null)
+    
+    
+    useEffect(() =>{
+        async function UpdateDom(userInput){
+            try{
+                const data = fetchData(userInput)
+                    setPokeData(data);
+            }   catch(error){
+                console.error(error)
+            }
+        }
+            UpdateDom(userInput)
+    },[userInput])
+    
+
+    
 
     return (
         <>
-            <h1>{ResData.name}</h1>
+            <h1>{pokedata && pokedata.name}</h1>
             <h1>Hello</h1>
         </>
     );

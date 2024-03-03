@@ -7,8 +7,8 @@ import './Header.css'
 
     function Header(){
         const [userInput, setUserInput] = useState("")
-        const navigate = useNavigate()
         const [newerror, setNewError] = useState(null)
+        const navigate = useNavigate()
         
 
 
