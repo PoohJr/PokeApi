@@ -1,4 +1,4 @@
-import Header from './Header.jsx'
+import Header from './pages/Header.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PokemonDet from "./pages/pokemonData.jsx"
 
@@ -18,6 +18,5 @@ function App() {
   )
 }
 
-const root =ReactDOM.createRoot(document.getElementById("root"))
-root.render(<App/>)
+
 export default App
