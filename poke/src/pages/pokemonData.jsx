@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import  handleSubmit  from './Header.jsx'
+import Header from "./Header";
 export async function fetchData(userInput) {
     
     const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
@@ -20,30 +22,13 @@ export async function fetchData(userInput) {
 
 
 function PokemonDetails() {
-    const location = useLocation()
-    const{userInput} = location.state
 
-    const [pokedata, setPokeData] = useState(null)
-    
-    
-    useEffect(() =>{
-        async function UpdateDom(userInput){
-            try{
-                const data = fetchData(userInput)
-                    setPokeData(data);
-            }   catch(error){
-                console.error(error)
-            }
-        }
-            UpdateDom(userInput)
-    },[userInput])
-    
 
     
 
     return (
         <>
-            <h1>{pokedata && pokedata.name}</h1>
+            {}
             <h1>PokeData</h1>
         </>
     );

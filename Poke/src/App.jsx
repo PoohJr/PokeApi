@@ -12,7 +12,8 @@ function App() {
         <Route>
           <Route index element={<Header/>} />
           <Route  path='PokeMon' element={<PokemonDet/>}/>
-          <Route  path='404' element={<NonLoad/>}/>
+          
+          <Route  path='*' element={<NonLoad replace to ="404"/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
