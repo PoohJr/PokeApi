@@ -1,23 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import  handleSubmit  from './Header.jsx'
-import Header from "./Header";
+import Header from "./Header.jsx";
 
 
 
 
-function PokemonDetails() {
-
+function PokemonData() {
 
     
 
     return (
         <>
-            {}
+            <Header />
             <h1>PokeData</h1>
         </>
     );
 }
 
-export default PokemonDetails;
+export default PokemonData;

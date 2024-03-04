@@ -11,11 +11,6 @@ import './Header.css'
         const navigate = useNavigate()
         
 
-
-
-
-
-
        useEffect(() => {
             async function fetchData(userInput) {
                 const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
@@ -41,7 +36,7 @@ import './Header.css'
         const handleSubmit = async (e) => {
             e.preventDefault();
                 setUserInput("")
-                navigate(`PokeMon/${userInput}`);
+                navigate('PokeMon');
             };
             
 
