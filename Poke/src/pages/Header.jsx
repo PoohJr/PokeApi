@@ -1,37 +1,55 @@
 import React, {useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { fetchData } from "./pokemonData.jsx";
 import './Header.css'
 
 
 
     function Header(){
         const [userInput, setUserInput] = useState("")
+        const [pokedata, setpokeData]= useState(null)
         const [newerror, setNewError] = useState(null)
         const navigate = useNavigate()
         
 
 
 
+
+
+
+       useEffect(() => {
+            async function fetchData(userInput) {
+                const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
+                try {
+                    const response = await fetch(apiurl);
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch Data");
+                    }
+                    const resData = await response.json();
+                    setpokeData(resData)
+                    console.log(resData) 
+                } catch (error) {
+                    console.error("Error Fetching Api", error);
+                        // navigate('404')
+                     setNewError("Error fetching data: " + error.message);
+                }
+            }
+
+        }, []);
+
+        
+        
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+                setUserInput("")
+                navigate(`PokeMon/${userInput}`);
+            };
+            
+
+
         function HandleInputChange(e){
             setUserInput(e.target.value)
         }
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-                try{
-                    const data = await fetchData(userInput)
-                    console.log(data)
-                    navigate('PokeMon', { state: { userInput: userInput }});
-                    console.log(navigate)
-                }   
-                    catch(error) {
-                        console.error("Error Fetching Api", error);
-                        navigate('404')
-                setNewError("Error fetching data: " + error.message);
-                    }
-                setUserInput("")
-            };
 
 
             
