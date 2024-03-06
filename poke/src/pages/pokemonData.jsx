@@ -12,7 +12,7 @@ function PokemonData() {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <h1>PokeData</h1>
         </>
     );

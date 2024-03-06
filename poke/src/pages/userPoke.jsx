@@ -3,7 +3,7 @@ import React from "react";
     function PokeMon2(){
 
         return(<>
-            <h1>This is Poke INfo</h1>
+            <h1>This is Poke Info</h1>
         </>)
     }
 

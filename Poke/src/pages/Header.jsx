@@ -4,7 +4,7 @@ import './Header.css'
 
 
 
-    function Header(){
+    export function Header(){
         const [userInput, setUserInput] = useState("")
         const [pokedata, setpokeData]= useState(null)
         const [newerror, setNewError] = useState(null)
@@ -28,12 +28,12 @@ import './Header.css'
                      setNewError("Error fetching data: " + error.message);
                 }
             }
-
-        }, []);
+             fetchData(userInput)   
+        }, [userInput]);
 
         
         
-        const handleSubmit = async (e) => {
+        function handleSubmit (e) {
             e.preventDefault();
                 setUserInput("")
                 navigate('PokeMon');
