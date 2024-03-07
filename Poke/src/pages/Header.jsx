@@ -1,5 +1,6 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from 'axios';
 import './Header.css'
 
 
@@ -9,27 +10,30 @@ import './Header.css'
         const [pokedata, setpokeData]= useState(null)
         const [newerror, setNewError] = useState(null)
         const navigate = useNavigate()
-        
+        const ref = useRef(mf)
 
-       useEffect(() => {
+        const inputRef = useRef(null)
+        
+       const mf =  useEffect(() => {
             async function fetchData(userInput) {
                 const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
                 try {
-                    const response = await fetch(apiurl);
-                    if (!response.ok) {
+                    const response = await axios(apiurl);
+                    if (response.status >= 200 && response.status < 300) {
+                        setpokeData(response.data);
+                        console.log(response.data);
+                    } else {
                         throw new Error("Failed to fetch Data");
                     }
-                    const resData = await response.json();
-                    setpokeData(resData)
-                    console.log(resData) 
                 } catch (error) {
                     console.error("Error Fetching Api", error);
-                        // navigate('404')
-                     setNewError("Error fetching data: " + error.message);
+                    // navigate('404')
+                    setNewError("Error fetching data: " + error.message);
                 }
             }
-             fetchData(userInput)   
+            fetchData(userInput);
         }, [userInput]);
+        
 
         
         

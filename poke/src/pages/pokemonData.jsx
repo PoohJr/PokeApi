@@ -12,7 +12,6 @@ function PokemonData() {
 
     return (
         <>
-            {/* <Header /> */}
             <h1>PokeData</h1>
         </>
     );
