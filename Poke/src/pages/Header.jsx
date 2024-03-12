@@ -7,40 +7,60 @@ import './Header.css'
 
     export function Header(){
         const [userInput, setUserInput] = useState("")
-        const [pokedata, setpokeData]= useState(null)
-        const [newerror, setNewError] = useState(null)
+        const [pokedata, setpokeData]= useState()
+        const [newerror, setNewError] = useState()
         const navigate = useNavigate()
         const ref = useRef(mf)
 
-        const inputRef = useRef(null)
+    //     const inputRef = useRef(null)
         
-       const mf =  useEffect(() => {
-            async function fetchData(userInput) {
-                const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
-                try {
-                    const response = await axios(apiurl);
-                    if (response.status >= 200 && response.status < 300) {
-                        setpokeData(response.data);
-                        console.log(response.data);
-                    } else {
-                        throw new Error("Failed to fetch Data");
-                    }
-                } catch (error) {
-                    console.error("Error Fetching Api", error);
-                    // navigate('404')
-                    setNewError("Error fetching data: " + error.message);
-                }
-            }
-            fetchData(userInput);
-        }, [userInput]);
+    //    const mf =  useEffect(() => {
+    //         async function fetchData(userInput) {
+    //             const apiurl = `https://pokeapi.co/api/v2/pokemon/${userInput}`;
+    //             try {
+    //                 const response = await axios(apiurl);
+    //                 if (response.status >= 200 && response.status < 300) {
+    //                     setpokeData(response.data);
+    //                     console.log(response.data);
+    //                 } else {
+    //                     throw new Error("Failed to fetch Data");
+    //                 }
+    //             } catch (error) {
+    //                 console.error("Error Fetching Api", error);
+    //                 // navigate('404')
+    //                 setNewError("Error fetching data: " + error.message);
+    //             }
+    //         }
+    //         fetchData(userInput);
+    //     }, [userInput]);
         
 
         
         
-        function handleSubmit (e) {
+        const  handleSubmit = (e) => {
             e.preventDefault();
+             async function fetchData() {
+               const apiUrl = fetch(`https://pokeapi.co/api/v2/pokemon/${userInput}`);
+               try{
+               const res = await axios(apiUrl)
+               data = setpokeData(data)
+                                else {
+                                    throw new Error("Failed to fetch Data");
+                                }
+                            
+                            } catch (error) {
+                                console.error("Error Fetching Api", error);
+                                
+                                setNewError("Error fetching data: " + error.message);
+                            }
+                        }
+                        
+               
+        }
+            
+            
                 setUserInput("")
-                navigate('PokeMon');
+                // navigate('PokeMon');
             };
             
 
@@ -55,9 +75,10 @@ import './Header.css'
                              
     return(
     <>
-            {newerror && <div className="error">{newerror}</div>}
+           
     <div className="container"> 
-        <form onSubmit={handleSubmit}> 
+     
+        <form> 
         <div className="display">
             <h1 className="heading-text">PokeMon</h1> 
 
@@ -67,7 +88,11 @@ import './Header.css'
                 placeholder="Choose Your Pokemon!"
                 ></input> 
 
-                <button href="./PokemonDet.jsx" className="search">Search</button>
+                <button href="./PokemonDet.jsx"
+                 className="search"
+                 onClick={handleSubmit}>
+                    Search
+                </button>
                 <br></br> 
                 <button className="random">Randomize</button> 
          </div>
@@ -75,5 +100,5 @@ import './Header.css'
      </div>
 
     </>)
-    }
+    
 export default Header
