@@ -1,19 +1,22 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "./Header.jsx";
-
-
-
 
 function PokemonData() {
-
-    
-
+    const location = useLocation();
+    const pokedata = location.state ? location.state.pokedata : null;
+    console.log(location.state.pokedata)
     return (
-        <>
-            <h1>PokeData</h1>
-        </>
+        <div>
+            <h1>Pokemon Data</h1>
+            {pokedata && (
+                <div>
+                    <h2>Name: {pokedata.name}</h2>
+                    <p>Height: {pokedata.height}</p>
+                    <p>Weight: {pokedata.weight}</p>
+                    
+                </div>
+            )}
+        </div>
     );
 }
 

@@ -17,6 +17,7 @@ export function Header() {
             if (res.status === 200) {
                 setpokeData(res.data);
                 console.log(res.data);
+                navigate("./PokemonData", {state: {pokedata: res.data} });
             } else {
                 throw new Error("Failed to fetch Data");
             }
