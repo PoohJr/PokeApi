@@ -16,7 +16,7 @@ function PokemonData() {
             <h1>Pokemon Data</h1>
             {pokedata && (
                 <div>
-                    <h2>Name: {pokedata.name}</h2>
+                    <h2 className="text-6xl">Name: {pokedata.name}</h2>
                     <p>Poke#: {pokedata.id}</p>
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokedata.id}.png`} alt="Pokemon Image"/>
                     <p>Height: {pokedata.height}</p>
