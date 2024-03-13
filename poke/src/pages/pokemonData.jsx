@@ -13,7 +13,6 @@ function PokemonData() {
 
     return (
         <div>
-            <h1>Pokemon Data</h1>
             {pokedata && (
                 <div>
                     <h2 className="text-6xl">Name: {pokedata.name}</h2>
@@ -23,6 +22,9 @@ function PokemonData() {
                     <p>Weight: {pokedata.weight}</p>
                     <button onClick={Playaudio}>PokeMon Cry </button> 
                     <p>Where ya can find em : {pokedata.location_area_encounters}</p>
+                    <p>Weight: {pokedata.height}</p>
+                    {/* <p>Weight: {pokedata.moves}</p>
+                    <p>Weight: {pokedata.moves}</p> */}
 
                     
                 </div>
@@ -32,3 +34,5 @@ function PokemonData() {
 }
 
 export default PokemonData;
+
+// https://github.com/PokeAPI/pokeapi/issues/387 for poke hieght and weight 
