@@ -1,9 +1,11 @@
 import Header from './pages/Header.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PokemonData from "./pages/PokemonData.jsx"; // Corrected path
-import UserPoke from "./pages/UserPoke.jsx"; // Corrected path
+import PokemonData from "./pages/PokemonData.jsx";
+import UserPoke from "./pages/UserPoke.jsx"; 
 import NonLoad from './pages/NonLoad.jsx';
-import './index.css'
+import './input.css'
+import "./output.css"
+
 
 function App() {
   return (

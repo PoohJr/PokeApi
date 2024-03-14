@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
+
 function PokemonData() {
     const location = useLocation();
     const pokedata = location.state ? location.state.pokedata : null;
@@ -15,7 +16,7 @@ function PokemonData() {
         <div>
             {pokedata && (
                 <div>
-                    <h2 className="text-6xl">Name: {pokedata.name}</h2>
+                    <h2 className="bg-red-400">Name: {pokedata.name}</h2>
                     <p>Poke#: {pokedata.id}</p>
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokedata.id}.png`} alt="Pokemon Image"/>
                     <p>Type:</p>
@@ -28,6 +29,7 @@ function PokemonData() {
                     <p>Weight: {pokedata.weight}</p>
                     <button onClick={Playaudio}>PokeMon Cry </button> 
                     <p>Where ya can find em : {pokedata.location_area_encounters}</p>
+
                     <p>Moves:</p>
                     {/* <ul>
                         {pokedata.moves.map((move, index) => (
@@ -42,7 +44,7 @@ function PokemonData() {
                             <li key={index}>{stat.stat.name} {stat.base_stat}</li>
                             ))}
                     </ul>   
-                    
+
                     <p>Abilitlies:</p>
                     <ul>
                         {pokedata.abilities.map((ability, index) => (
@@ -57,7 +59,7 @@ function PokemonData() {
     );
 }
 
-// did is might be to gte the evelotion of the pokemon fetch (`https://pokeapi.co/api/v2/evolution-chain/${pokedata.id}/`)
+// did is might be to gte the evelotion of the pokemon fetch (`https://pokeapi.co/api/v2/evolution-chain/1/`)
 export default PokemonData;
 
 // https://github.com/PokeAPI/pokeapi/issues/387 for poke hieght and weight 
