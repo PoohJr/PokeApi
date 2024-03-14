@@ -22,7 +22,7 @@ form{
     align-items: center;
     gap: 2em;
 }
-h1{
+.heading-text{
     font-size: 6em;
 }
 input{

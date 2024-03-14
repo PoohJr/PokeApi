@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 
+
 function PokemonData() {
     const location = useLocation();
     const pokedata = location.state ? location.state.pokedata : null;
@@ -27,7 +28,7 @@ function PokemonData() {
                         </ul>
                     <p>Height: {pokedata.height}</p>
                     <p>Weight: {pokedata.weight}</p>
-                    <button onClick={Playaudio}>PokeMon Cry </button> 
+                    <button onClick={Playaudio}>PokeMon Cry: </button> 
                     <p>Where ya can find em : {pokedata.location_area_encounters}</p>
 
                     <p>Moves:</p>
