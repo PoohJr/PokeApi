@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 
 
+
 function PokemonData() {
     const location = useLocation();
     const pokedata = location.state ? location.state.pokedata : null;

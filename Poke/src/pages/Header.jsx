@@ -41,7 +41,7 @@ export function Header() {
                             placeholder="Choose Your Pokemon!"
                         />
                         <button
-                            className="search"
+                            className="bg-blue-500"
                             onClick={handleSubmit}
                         >
                             Search
