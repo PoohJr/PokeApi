@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PokemonData from "./pages/PokemonData.jsx";
 import UserPoke from "./pages/UserPoke.jsx"; 
 import NonLoad from './pages/NonLoad.jsx';
-import './input.css'
 import "./output.css";
 
 
