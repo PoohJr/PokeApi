@@ -18,13 +18,37 @@ function PokemonData() {
                     <h2 className="text-6xl">Name: {pokedata.name}</h2>
                     <p>Poke#: {pokedata.id}</p>
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokedata.id}.png`} alt="Pokemon Image"/>
+                    <p>Type:</p>
+                        <ul>
+                             {pokedata.types.map((type, index) => (
+                                <li key={index}>{type.type.name}</li>
+                             ))}
+                        </ul>
                     <p>Height: {pokedata.height}</p>
                     <p>Weight: {pokedata.weight}</p>
                     <button onClick={Playaudio}>PokeMon Cry </button> 
                     <p>Where ya can find em : {pokedata.location_area_encounters}</p>
-                    <p>Weight: {pokedata.height}</p>
-                    {/* <p>Weight: {pokedata.moves}</p>
-                    <p>Weight: {pokedata.moves}</p> */}
+                    <p>Moves:</p>
+                    {/* <ul>
+                        {pokedata.moves.map((move, index) => (
+                            <li key={index}>{move.move.name}</li>
+                            
+                        ))}
+                    </ul> */}
+
+                    <p>Stats: </p>
+                    <ul>
+                        {pokedata.stats.map((stat, index) => (
+                            <li key={index}>{stat.stat.name} {stat.base_stat}</li>
+                            ))}
+                    </ul>   
+                    
+                    <p>Abilitlies:</p>
+                    <ul>
+                        {pokedata.abilities.map((ability, index) => (
+                            <li key={index}>{ability.ability.name}</li>
+                        ))}
+                    </ul>
 
                     
                 </div>
@@ -33,6 +57,10 @@ function PokemonData() {
     );
 }
 
+// did is might be to gte the evelotion of the pokemon fetch (`https://pokeapi.co/api/v2/evolution-chain/${pokedata.id}/`)
 export default PokemonData;
 
 // https://github.com/PokeAPI/pokeapi/issues/387 for poke hieght and weight 
+
+// https://www.polygon.com/pokemon-go-guide/22554033/type-chart-strengths-weaknesses-super-effective
+// and this is for when i am going to add whats its good against and weak against 
