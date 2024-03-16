@@ -1,5 +1,5 @@
-AddType text/css .css
+<!-- AddType text/css .css
 
 <Files "output.css">
     ForceType text/css
-</Files>
+</Files> -->
