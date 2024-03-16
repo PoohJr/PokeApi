@@ -6,6 +6,9 @@ import NonLoad from './pages/NonLoad.jsx';
 import "./output.css";
 
 
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,7 +17,7 @@ function App() {
         <Route path="/pokemonData" element={<PokemonData />} /> 
         <Route path="/userPoke" element={<UserPoke />} /> 
         
-        { <Route path="*" element={<NonLoad />} /> }
+        {/* { <Route path="*" element={<NonLoad />} /> } */}
       </Routes>
     </BrowserRouter>
   );
