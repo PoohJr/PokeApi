@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ["./poke/src/assets/**/*.{html,css,js,jsx}"],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
